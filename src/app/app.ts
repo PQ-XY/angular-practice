@@ -1,12 +1,19 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { WishItem } from '../shared/models/wishItem';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [CommonModule],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('angular-practice');
+  items = [
+    new WishItem('Learn Angular', true),
+    new WishItem('Build an app'),
+    new WishItem('Deploy to production')
+  ];
+  title = 'wishlist';
 }
