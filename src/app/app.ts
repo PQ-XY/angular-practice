@@ -16,4 +16,8 @@ export class App {
     new WishItem('Deploy to production')
   ];
   title = 'wishlist';
+
+  toggleItem() {
+    this.items[0].isComplete = !this.items[0].isComplete;
+  }
 }

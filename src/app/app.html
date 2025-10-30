@@ -1,9 +1,21 @@
 <div class="container">
-  <div *ngFor="let item of items">
-    <div class="form-check">
-      <label class="form-check-label">
-        <input type="checkbox" [checked]="item.isComplete" /> {{ item.wishText }}
-      </label>
-    </div>
+  
+  <div *ngIf="items.length === 0; else showItems">
+    <p>Your wishlist is empty.</p>
   </div>
+
+  <ng-template #showItems>
+    <div *ngFor="let item of items">
+      <div class="form-check">
+        <label class="form-check-label">
+          <input 
+            type="checkbox" 
+            [checked]="item.isComplete" 
+            (click)="toggleItem()"
+          /> {{ item.wishText }}
+        </label>
+      </div>
+    </div>
+  </ng-template>
+
 </div>
